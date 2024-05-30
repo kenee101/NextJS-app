@@ -5,8 +5,8 @@ export const metadata = {
 };
 
 export default async function Page() {
-  const { user: name } = await auth();
-  const firstName = name.split(" ").at(0);
+  const session = await auth();
+  const firstName = session.user.name.split(" ").at(0);
   return (
     <h2 className="font-semibold text-2xl text-accent-400 mb-7">
       Welcome, {firstName}
